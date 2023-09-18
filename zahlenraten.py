@@ -3,18 +3,18 @@ import time
 
 
 def computerRät(zufallszahl: int, wartezeit: bool) -> None:
-    runden: int = 0
-    lowerBound: int = 0
-    upperBound: int = 100
+    runden = 0
+    lowerBound = 0
+    upperBound = 100
     while True:
         print("Computer rät...")
-        guess: int = random.randint(lowerBound, upperBound)
+        guess = random.randint(lowerBound, upperBound)
         if wartezeit:
             time.sleep(random.randint(1, 3))
         
-        print(f"Computer rät {guess}.", end=" ")
+        print("Computer rät " + str(guess) + ".", end=" ")
         if guess == zufallszahl:
-            print(f"Das war richtig!\nEs wurden {runden} Runden gespielt")
+            print("Das war richtig!\nEs wurden " + str(runden) + " Runden gespielt")
             break
         elif guess > zufallszahl:
             print("Das war zu hoch.")
@@ -28,12 +28,12 @@ def computerRät(zufallszahl: int, wartezeit: bool) -> None:
         
 
 def spielerRät() -> None:
-    zufallszahl: int = random.randint(1, 100)
-    runden: int = 0
+    zufallszahl = random.randint(1, 100)
+    runden = 0
     while True:
-        gerateneZahl: int = int(input("Rate eine Zahl: "))
+        gerateneZahl = int(input("Rate eine Zahl: "))
         if gerateneZahl == zufallszahl:
-            print(f"Du hast die Zahl erraten!\nEs wurden {runden} Runden gespielt.")
+            print("Du hast die Zahl erraten!\nEs wurden " + str(runden) + " Runden gespielt.")
             break
         elif gerateneZahl > zufallszahl:
             print("Die genannte Zahl ist zu groß.")
@@ -44,7 +44,7 @@ def spielerRät() -> None:
     
 
 if __name__ == "__main__":
-    wahl: str = input("Spielmodi:\n(a) Spieler rät\n(b) Computer rät\n").lower()
+    wahl = input("Spielmodi:\n(a) Spieler rät\n(b) Computer rät\n").lower()
     if wahl == "a":
         spielerRät()
     elif wahl == "b":
